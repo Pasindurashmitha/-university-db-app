@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Table(name = "department")
 @Getter
@@ -19,4 +21,7 @@ public class Department {
 
     @Column(name = "name", nullable = false, length = 100)
     private String name;
+
+    @OneToMany(mappedBy = "department", fetch = FetchType.LAZY)
+    private List<Lecturer> lecturers;
 }
