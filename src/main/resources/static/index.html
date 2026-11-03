@@ -1,0 +1,386 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University DB | Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="app-container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <h2>University<span>DB</span></h2>
+        </div>
+
+        <p class="menu-label">MAIN MENU</p>
+
+        <nav>
+            <a href="#" class="nav-link active" data-page="dashboard">Dashboard</a>
+            <a href="#" class="nav-link" data-page="students">Students</a>
+            <a href="#" class="nav-link" data-page="courses">Courses</a>
+            <a href="#" class="nav-link" data-page="departments">Departments</a>
+            <a href="#" class="nav-link" data-page="enrollments">Enrollments</a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <p>University Management System</p>
+        </div>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- HEADER -->
+        <header class="topbar">
+
+            <div>
+                <h1 id="pageTitle">Dashboard</h1>
+                <p id="pageDescription">
+                    Welcome to your university management system.
+                </p>
+            </div>
+
+            <div class="profile">
+                <div class="avatar">A</div>
+                <span>Administrator</span>
+            </div>
+
+        </header>
+
+        <!-- DASHBOARD PAGE -->
+        <section id="dashboardPage" class="page-section">
+
+            <section class="stats-grid">
+
+                <div class="stat-card">
+                    <p>Total Students</p>
+                    <h2 id="totalStudents">--</h2>
+                    <span>Registered students</span>
+                </div>
+
+                <div class="stat-card">
+                    <p>Total Courses</p>
+                    <h2 id="totalCourses">--</h2>
+                    <span>Available courses</span>
+                </div>
+
+                <div class="stat-card">
+                    <p>Departments</p>
+                    <h2 id="totalDepartments">—</h2>
+                    <span>Academic departments</span>
+                </div>
+
+                <div class="stat-card">
+                    <p>Enrollments</p>
+                    <h2 id="totalEnrollments">--</h2>
+                    <span>Grade A registrations</span>
+                </div>
+
+            </section>
+
+            <section class="content-card">
+
+                <div class="section-header">
+                    <h2>Recent Students</h2>
+                    <p>Students registered in the system</p>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Student Code</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="studentTable">
+                            <tr>
+                                <td colspan="3">Loading students...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </section>
+
+        </section>
+
+        <!-- STUDENTS PAGE -->
+        <section id="studentsPage" class="page-section" hidden>
+
+            <section class="content-card">
+
+                <div class="section-header students-header">
+                    <div>
+                        <h2>All Students</h2>
+                        <p>Manage and view registered university students</p>
+                    </div>
+
+                    <span class="student-count" id="studentCount">
+                        0 Students
+                    </span>
+                </div>
+
+                <div class="search-container">
+                    <input
+                        type="text"
+                        id="studentSearch"
+                        placeholder="Search by student name or code..."
+                    >
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Student Code</th>
+                                <th>Full Name</th>
+                                <th>Email Address</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="allStudentsTable">
+                            <tr>
+                                <td colspan="3">Loading students...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </section>
+
+        </section>
+
+        <!-- COURSES PAGE -->
+        <section id="coursesPage" class="page-section" hidden>
+
+            <section class="content-card">
+
+                <div class="section-header students-header">
+                    <div>
+                        <h2>All Courses</h2>
+                        <p>View available university courses</p>
+                    </div>
+
+                    <span class="student-count" id="courseCount">
+                        0 Courses
+                    </span>
+                </div>
+
+                <div class="search-container">
+                    <input
+                        type="text"
+                        id="courseSearch"
+                        placeholder="Search by course code, title or lecturer..."
+                    >
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Course Code</th>
+                                <th>Course Title</th>
+                                <th>Credits</th>
+                                <th>Lecturer</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="allCoursesTable">
+                            <tr>
+                                <td colspan="4">Loading courses...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </section>
+
+        </section>
+
+        <!-- DEPARTMENTS PAGE -->
+        <section id="departmentsPage" class="page-section" hidden>
+
+            <section class="content-card">
+
+                <div class="section-header">
+                    <div>
+                        <h2>Academic Departments</h2>
+                        <p>View all academic departments and lecturer information</p>
+                    </div>
+
+                    <span class="student-count" id="departmentCount">
+                        0 Departments
+                    </span>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Department Code</th>
+                                <th>Department Name</th>
+                                <th>Number of Lecturers</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="departmentTable">
+                            <tr>
+                                <td colspan="3">Loading departments...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </section>
+
+        </section>
+
+        <!-- ENROLLMENTS PAGE -->
+        <section id="enrollmentsPage" class="page-section" hidden>
+
+            <section class="content-card">
+
+                <div class="section-header students-header">
+                    <div>
+                        <h2>All Enrollments</h2>
+                        <p>View student course registrations and grades</p>
+                    </div>
+
+                    <span class="student-count" id="enrollmentCount">
+                        0 Enrollments
+                    </span>
+                </div>
+
+                <!-- ENROLLMENT SEARCH -->
+                <div class="search-container">
+                    <input
+                        type="text"
+                        id="enrollmentSearch"
+                        placeholder="Search by student code, name, course or grade..."
+                    >
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Student Code</th>
+                                <th>Student Name</th>
+                                <th>Course Code</th>
+                                <th>Course Title</th>
+                                <th>Grade</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="enrollmentTable">
+                            <tr>
+                                <td colspan="5">Loading enrollments...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </section>
+
+        </section>
+
+        <!-- STUDENT DETAILS MODAL -->
+        <div id="studentModal" class="modal" hidden>
+
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <div>
+                        <h2>Student Details</h2>
+                        <p>Student personal information and academic records</p>
+                    </div>
+
+                    <button
+                        id="closeStudentModal"
+                        class="close-button"
+                        type="button">
+                        &times;
+                    </button>
+                </div>
+
+                <!-- STUDENT PROFILE -->
+                <div class="student-profile">
+
+                    <div class="student-avatar" id="detailAvatar">
+                        S
+                    </div>
+
+                    <div>
+                        <h3 id="detailName">Student Name</h3>
+                        <p id="detailCode">Student Code</p>
+                    </div>
+
+                </div>
+
+                <!-- PERSONAL INFORMATION -->
+                <div class="details-grid">
+
+                    <div class="detail-item">
+                        <label>Student Code</label>
+                        <p id="detailStudentCode">-</p>
+                    </div>
+
+                    <div class="detail-item">
+                        <label>Full Name</label>
+                        <p id="detailFullName">-</p>
+                    </div>
+
+                    <div class="detail-item">
+                        <label>Email Address</label>
+                        <p id="detailEmail">-</p>
+                    </div>
+
+                </div>
+
+                <!-- COURSE ENROLLMENTS -->
+                <div class="enrollment-section">
+
+                    <h3>Enrolled Courses</h3>
+
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Course Code</th>
+                                    <th>Grade</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="detailEnrollments">
+                                <tr>
+                                    <td colspan="2">Loading enrollments...</td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="js/app.js"></script>
+
+</body>
+</html>
